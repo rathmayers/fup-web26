@@ -33,5 +33,4 @@ export default defineType({
     defineField({ name: 'featuredCaseStudies', title: 'Ausgewählte Case Studies', type: 'array', of: [{ type: 'reference', to: [{ type: 'caseStudy' }] }] }),
     defineField({ name: 'featuredBranchen', title: 'Ausgewählte Branchen', type: 'array', of: [{ type: 'reference', to: [{ type: 'branche' }] }] }),
   ],
-  __experimental_actions: ['update', 'publish'],
 })

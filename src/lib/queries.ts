@@ -1,9 +1,10 @@
 import { client, isSanityConfigured } from './sanity.client'
 
 // Helper: returns null immediately when Sanity is not configured
-async function query<T>(groq: string, params?: Record<string, unknown>): Promise<T | null> {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+async function query<T = any>(groq: string, params?: Record<string, string | number | boolean>): Promise<T | null> {
   if (!isSanityConfigured || !client) return null
-  return client.fetch<T>(groq, params)
+  return params ? client.fetch<T>(groq, params) : client.fetch<T>(groq)
 }
 
 // ── Homepage ───────────────────────────────────────────
